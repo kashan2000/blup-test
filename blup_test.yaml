@@ -1,8 +1,9 @@
+---
 apiVersion: v1
 kind: Namespace
 metadata:
   name: game-2048
-  
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -19,12 +20,12 @@ spec:
         app.kubernetes.io/name: app-2048
     spec:
       containers:
-      - image: 454502939428.dkr.ecr.ap-south-1.amazonaws.com/aws-flask-test:latest
+      - image: https://raw.githubusercontent.com/kashan2000/blup-test/main/blup_test.yaml
         imagePullPolicy: Always
         name: app-2048
         ports:
         - containerPort: 80
-
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -38,7 +39,7 @@ spec:
   type: NodePort
   selector:
     app.kubernetes.io/name: app-2048
-
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -58,4 +59,4 @@ spec:
             service:
               name: service-2048
               port:
-                number: 80              
+                number: 80
