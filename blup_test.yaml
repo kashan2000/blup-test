@@ -20,7 +20,8 @@ spec:
         app.kubernetes.io/name: app-2048
     spec:
       containers:
-      - image: https://raw.githubusercontent.com/kashan2000/blup-test/main/blup_test.yaml
+      - image: 454502939428.dkr.ecr.ap-south-1.amazonaws.com/aws-flask-test:latest
+      
         imagePullPolicy: Always
         name: app-2048
         ports:
